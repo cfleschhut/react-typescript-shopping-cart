@@ -17,7 +17,7 @@ export type CartItemType = {
 
 const getProducts = async (): Promise<CartItemType[]> =>
   fetch(
-    "https://mockend.com/cfleschhut/react-typescript-shopping-cart/products"
+    "https://my-json-server.typicode.com/cfleschhut/react-typescript-shopping-cart/products"
   ).then((res) => res.json());
 
 const App = () => {
