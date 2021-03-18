@@ -21,11 +21,20 @@ const getProducts = async (): Promise<CartItemType[]> =>
   ).then((res) => res.json());
 
 const App = () => {
-  const { isLoading, error, data } = useQuery<CartItemType[]>(
+  const { isLoading, error, data } = useQuery<CartItemType[], TypeError>(
     "products",
     getProducts
   );
   console.log(data);
+
+  const getTotalItems = () => null;
+
+  const handleAddToCart = () => null;
+
+  const handleRemoveFromCart = () => null;
+
+  if (isLoading) return <LinearProgress />;
+  if (error) return <div>An error has occurred: {error.message}</div>;
 
   return (
     <div className="App">
