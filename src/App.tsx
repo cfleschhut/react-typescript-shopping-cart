@@ -35,7 +35,20 @@ const App = () => {
     items.reduce((acc, item) => acc + item.amount, 0);
 
   const handleAddToCart = (clickedItem: CartItemType) => {
-    console.log(clickedItem);
+    //console.log(clickedItem);
+    setCartItems((prev) => {
+      const isItemInCart = prev.find((item) => item.id === clickedItem.id);
+
+      if (isItemInCart) {
+        return prev.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
   };
 
   const handleRemoveFromCart = () => null;
