@@ -1,13 +1,13 @@
 import { render } from "react-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
+import "./styles.css";
 
 const queryClient = new QueryClient();
 
-const rootElement = document.getElementById("root");
 render(
   <QueryClientProvider client={queryClient}>
     <App />
   </QueryClientProvider>,
-  rootElement
+  document.getElementById("root")
 );
